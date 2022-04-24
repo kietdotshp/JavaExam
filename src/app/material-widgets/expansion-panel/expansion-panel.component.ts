@@ -25,5 +25,4 @@ export class ExpansionPanelComponent implements OnInit {
 	prevStep() {
 	    this.step--;
 	}
-
 }
