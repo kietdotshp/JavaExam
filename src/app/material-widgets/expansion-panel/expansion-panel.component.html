@@ -242,12 +242,11 @@
           <div id="9" class="card-header bg-white">
             <div class="media align-items-center">
               <div class="media-left">
-                <h4 class="mb-0"><strong>Câu 1</strong></h4>
+                <h4 class="mb-0"><strong>Câu : {{questionNo}}</strong></h4>
               </div>
               <div class="media-body">
-                <h4 class="card-title"> Github command
-                  to deploy comits?
-                </h4>
+              <h4 class="card-title"> {{questionPrivew.title}}
+              </h4>
               </div>
             </div>
           </div>
@@ -297,52 +296,15 @@
             <div class="countdown sidebar-p-x" data-value="4" data-unit="hour"></div>
 
             <div class="sidebar-heading">Pending</div>
-            <ul class="list-group list-group-fit">
-              <li class="list-group-item active">
-                <a href="#9">
+            <ul class="list-group list-group-fit" *ngFor="let question of questions; let i = index">
+              <li class="list-group-item" (click)="openQuestion(question, i+1)">
+                <a>
                   <span class="media">
                     <span class="media-left">
-                      <span class="btn btn-white btn-circle">#9</span>
+                      <span class="btn btn-white btn-circle">{{i + 1}} </span>
                     </span>
                     <span class="media-body media-middle">
-                      Github command to deploy comits?
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#10">
-                  <span class="media">
-                    <span class="media-left">
-                      <span class="btn btn-white btn-circle">#10</span>
-                    </span>
-                    <span class="media-body media-middle">
-                      What&#39;s the difference between private and
-                      public repos?
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <span class="media">
-                    <span class="media-left">
-                      <span class="btn btn-white btn-circle">#11</span>
-                    </span>
-                    <span class="media-body media-middle">
-                      What is the purpose of a branch?
-                    </span>
-                  </span>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <span class="media">
-                    <span class="media-left">
-                      <span class="btn btn-white btn-circle">#12</span>
-                    </span>
-                    <span class="media-body media-middle">
-                      Final Question?
+                      {{question.title}} ?
                     </span>
                   </span>
                 </a>
@@ -363,4 +325,4 @@
   </div>
 
 </div>
-<script src="assets/vendor/jquery.countdown.min.js"></script>
+
