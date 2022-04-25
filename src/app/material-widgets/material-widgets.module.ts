@@ -49,6 +49,8 @@ import { ProgressbarComponent } from './progressbar/progressbar.component';
 import { InputComponent } from './input/input.component';
 import { RadioComponent } from './radio/radio.component';
 import { SelectComponent } from './select/select.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { QuestionService } from './expansion-panel/expansion-panel.service';
 
 
 
@@ -94,7 +96,7 @@ export const highlightJsValue = {
     MatSlideToggleModule,
     MatProgressBarModule,
     HighlightModule,
-    MaterialWidgetsRouterModule
+    MaterialWidgetsRouterModule,
   ],
   declarations: [
     ButtonsComponent,
@@ -118,7 +120,7 @@ export const highlightJsValue = {
     InputComponent,
     RadioComponent,
     SelectComponent,
-    
+
 
 
     ],
@@ -133,10 +135,11 @@ export const highlightJsValue = {
       //   languages: {
       //     typescript: () => import('highlight.js/lib/languages/typescript')}
       // }
-    }
+    },
+    QuestionService
   ],
   exports: [
     ]
-      
+
 })
 export class MaterialWidgetsModule { }
