@@ -15,15 +15,18 @@ export class ExpansionPanelComponent implements OnInit {
   questions : IQuestion[];
   questionPrivew : Question;
   questionNo: any;
+  currentAnswers: any;
   	constructor( private questionService: QuestionService) { }
 
   	ngOnInit() {
       this.questionService.getQuestion().subscribe( data => {
-          this.questions = data.content;
-          this.questionPrivew =  data.content [0];
+          this.questions = data;
+          this.questionPrivew =  data[0];
           this.questionNo = 1;
+
           console.log(this.questions)
-          console.log(this.questionPrivew)
+          console.log(this.questionPrivew.answerDTOS)
+
       });
   	}
   	setStep(index: number) {
@@ -38,9 +41,9 @@ export class ExpansionPanelComponent implements OnInit {
 	    this.step--;
 	}
 
-  openQuestion(question: IQuestion, no: any){
+  openQuestion(question: IQuestion, questionNo: any){
       this.questionPrivew = question;
-      this.questionNo = no;
+      this.questionNo = questionNo;
       console.log(this.questionPrivew)
   }
 }
