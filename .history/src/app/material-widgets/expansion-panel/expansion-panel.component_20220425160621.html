@@ -214,7 +214,7 @@
         <div class="card-group">
           <div class="card">
             <div class="card-body text-center">
-              <h4 class="mb-0"><strong>{{questions.length}}</strong></h4>
+              <h4 class="mb-0"><strong>25</strong></h4>
               <small class="text-muted-light">TOTAL</small>
             </div>
           </div>
@@ -251,11 +251,25 @@
             </div>
           </div>
           <div class="card-body">
-            <div class="form-group" *ngFor="let item of questionPrivew.answerDTOS">
+            <div class="form-group">
               <label class="custom-control custom-checkbox mb-0">
                 <input type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">{{item.answer}}</span>
+                <span class="custom-control-description">git push</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="custom-control custom-checkbox mb-0">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">git commit -m &quot;message&quot;</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="custom-control custom-checkbox mb-0">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">git pull</span>
               </label>
             </div>
           </div>
@@ -265,13 +279,10 @@
 
 
           <div class="card-footer">
-            <!-- <a href="#" class="btn btn-white">Skip</a> -->
-            <a href="#" class="btn btn-success float-left">Previous</a>
-
-            <a href="#" class="btn btn-success float-right">Next</a>
-            <!-- <a href="#" class="btn btn-success float-right">
+            <a href="#" class="btn btn-white">Skip</a>
+            <a href="#" class="btn btn-success float-right">
               Submit <i class="material-icons btn__icon--right">
-                send</i></a> -->
+                send</i></a>
           </div>
         </div>
       </div>
@@ -286,7 +297,7 @@
               <h5 style="  text-align: center;">{{couter}}s</h5>
             <div class="sidebar-heading">Pending</div>
             <ul class="list-group list-group-fit" *ngFor="let question of questions; let i = index">
-              <li class="list-group-item"(click)="openQuestion(question, i+1)">
+              <li class="list-group-item active"(click)="openQuestion(question, i+1)">
                 <a>
                   <span class="media">
                     <span class="media-left">
@@ -297,15 +308,6 @@
                     </span>
                   </span>
                 </a>
-              </li>
-            </ul>
-            <ul class="list-group list-group-fit">
-              <li>
-                <div>
-                  <a href="#" class="btn btn-success btn-block">
-      Submit <i class="material-icons btn__icon--right">
-        send</i></a>
-    </div>
               </li>
             </ul>
           </div>
