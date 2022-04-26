@@ -279,13 +279,10 @@
 
 
           <div class="card-footer">
-            <!-- <a href="#" class="btn btn-white">Skip</a> -->
-            <a href="#" class="btn btn-success float-left">Previous</a>
-
-            <a href="#" class="btn btn-success float-right">Next</a>
-            <!-- <a href="#" class="btn btn-success float-right">
+            <a href="#" class="btn btn-white">Skip</a>
+            <a href="#" class="btn btn-success float-right">
               Submit <i class="material-icons btn__icon--right">
-                send</i></a> -->
+                send</i></a>
           </div>
         </div>
       </div>
@@ -300,7 +297,7 @@
               <h5 style="  text-align: center;">{{couter}}s</h5>
             <div class="sidebar-heading">Pending</div>
             <ul class="list-group list-group-fit" *ngFor="let question of questions; let i = index">
-              <li class="list-group-item"(click)="openQuestion(question, i+1)">
+              <li class="list-group-item" (click)="openQuestion(question, i+1)">
                 <a>
                   <span class="media">
                     <span class="media-left">
@@ -311,15 +308,6 @@
                     </span>
                   </span>
                 </a>
-              </li>
-            </ul>
-            <ul class="list-group list-group-fit">
-              <li>
-                <div>
-                  <a href="#" class="btn btn-success btn-block">
-      Submit <i class="material-icons btn__icon--right">
-        send</i></a>
-    </div>
               </li>
             </ul>
           </div>

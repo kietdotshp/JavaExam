@@ -15,7 +15,6 @@ export class ExpansionPanelComponent implements OnInit {
   questions : IQuestion[];
   questionPrivew : Question;
   questionNo: any;
-  couter = 60;
   	constructor( private questionService: QuestionService) { }
 
   	ngOnInit() {
