@@ -2,14 +2,20 @@ export interface IQuestion{
   id: string,
   title : string,
   description : string,
-  expectedAnswer : string ,
-  corectAnswer : string
+  answerDTOS: [{
+    id: string,
+    answer: string,
+    corectAnswer: boolean,
+  }]
 }
 
 export class Question implements IQuestion{
   id: string;
   title : string;
   description : string;
-  expectedAnswer : string ;
-  corectAnswer : string ;
+  answerDTOS: [{
+    id: string,
+    answer: string,
+    corectAnswer: boolean,
+  }]
 }
