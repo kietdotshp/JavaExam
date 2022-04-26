@@ -15,7 +15,7 @@ export class ExpansionPanelComponent implements OnInit {
   questions: IQuestion[];
   questionPrivew: Question;
   // currentQuestion : number =1;
-  questionNo: number = 0;
+  questionNo: number;
   couter = 60;
   currentAnswers: any;
 
@@ -24,12 +24,19 @@ export class ExpansionPanelComponent implements OnInit {
   ngOnInit() {
     this.questionService.getQuestion().subscribe((data) => {
       this.questions = data;
+      this.questionPrivew = data[0];
+      this.questionNo = 0;
+
       console.log(this.questions);
+      console.log(this.questionPrivew.answerDTOS);
     });
   }
 
-  openQuestion(index: number) {
-    this.questionNo = index;
+  openQuestion(questionNo: number) {
+    debugger
+    console.log(this.questionNo);
+    this.questionNo = questionNo;
+
   }
 
   nextQuestion() {

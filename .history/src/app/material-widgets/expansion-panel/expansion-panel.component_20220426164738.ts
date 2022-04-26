@@ -24,12 +24,16 @@ export class ExpansionPanelComponent implements OnInit {
   ngOnInit() {
     this.questionService.getQuestion().subscribe((data) => {
       this.questions = data;
+      this.questionPrivew = data[0];
+
       console.log(this.questions);
+      console.log(this.questionPrivew.answerDTOS);
     });
   }
 
-  openQuestion(index: number) {
-    this.questionNo = index;
+  openQuestion(questionNo: number) {
+    this.questionNo = questionNo['i'];
+
   }
 
   nextQuestion() {

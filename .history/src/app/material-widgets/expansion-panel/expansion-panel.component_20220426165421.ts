@@ -28,8 +28,8 @@ export class ExpansionPanelComponent implements OnInit {
     });
   }
 
-  openQuestion(index: number) {
-    this.questionNo = index;
+  openQuestion(no: number) {
+    this.questionNo = no;
   }
 
   nextQuestion() {

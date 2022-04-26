@@ -29,7 +29,9 @@ export class ExpansionPanelComponent implements OnInit {
   }
 
   openQuestion(index: number) {
+    debugger
     this.questionNo = index;
+
   }
 
   nextQuestion() {

@@ -242,16 +242,16 @@
           <div id="9" class="card-header bg-white">
             <div class="media align-items-center">
               <div class="media-left">
-                <h4 class="mb-0"><strong>Câu : {{questionNo + 1}}</strong></h4>
+                <h4 class="mb-0"><strong>Câu : {{questionNo}}</strong></h4>
               </div>
               <div class="media-body">
-              <h4 class="card-title"> {{questions[questionNo].title}}
+              <h4 class="card-title"> {{questionPrivew.title}}
               </h4>
               </div>
             </div>
           </div>
           <div class="card-body">
-            <div class="form-group" *ngFor="let item of questions[questionNo].answerDTOS">
+            <div class="form-group" *ngFor="let item of questionPrivew.answerDTOS">
               <label class="custom-control custom-checkbox mb-0">
                 <input type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
@@ -286,7 +286,7 @@
               <h5 style="  text-align: center;">{{couter}}s</h5>
             <div class="sidebar-heading">Pending</div>
             <ul class="list-group list-group-fit" *ngFor="let question of questions; let i = index">
-              <li class="list-group-item"(click)="openQuestion(i)">
+              <li class="list-group-item"(click)="openQuestion(question, i+1)">
                 <a>
                   <span class="media">
                     <span class="media-left">
