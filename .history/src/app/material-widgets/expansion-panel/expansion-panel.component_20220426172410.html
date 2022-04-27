@@ -286,7 +286,7 @@
               <h5 style="  text-align: center;">{{couter}}s</h5>
             <div class="sidebar-heading">Pending</div>
             <ul class="list-group list-group-fit" *ngFor="let question of questions; let i = index">
-              <li class="list-group-item"(click)="openQuestion(i)">
+              <li class="list-group-item"((click))="openQuestion({i})">
                 <a>
                   <span class="media">
                     <span class="media-left">
