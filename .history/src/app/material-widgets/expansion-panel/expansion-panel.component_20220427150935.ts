@@ -1,7 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { EXPANSION_HELPERS } from './helpers.data';
 import { IQuestion, Question } from './question';
-import { QuestionService } from './expansion-panel.service';
+import {QuestionService} from './expansion-panel.service';
 import { interval } from 'rxjs';
 
 @Component({
@@ -25,13 +25,8 @@ export class ExpansionPanelComponent implements OnInit {
   ngOnInit() {
     this.questionService.getQuestion().subscribe((data) => {
       this.questions = data;
-      data.forEach(item => {
-        item.answerDTOS.forEach((element)=>{
-          element["status"] = false;
-        });
-      });
+      console.log(this.questions);
     });
-    this.startCouter();
   }
 
   openQuestion(index: number) {
@@ -55,49 +50,22 @@ export class ExpansionPanelComponent implements OnInit {
     }
   }
   startCouter() {
-    this.interval$ = interval(1000).subscribe((value) => {
+    this.interval$ = interval(1000)
+    .subscribe(value => {
       this.couter--;
-      if (this.couter === 0) {
-        // this.questionNo++;
+      if(this.couter === 0){
+        this.questionNo++
         this.couter = 60;
       }
     });
     setTimeout(() => {
       this.interval$.unsubscribe();
-    }, 6000000);
+    },6000000)
   }
   stopCouter() {
-    this.interval$.unsubscribe();
-    this.couter = 0;
+
   }
   resetCouter() {
-    this.stopCouter();
-    this.couter = 60;
-    this.startCouter();
-  }
-  resetQuiz() {
-    this.resetCouter();
-    this.questionService.getQuestion().subscribe((data) => {
-      this.questions = data;
-      console.log(this.questions);
-      this.couter=60
-    });
-  }
 
-  onClickChecBox(item){
-    this.questions.forEach((element) => {
-      element.answerDTOS.forEach((record)=>{
-        if(record.status == false){
-          if(record.id == item.id) {
-            record.status = true;
-          }
-        }
-        else {
-          if(record.id == item.id) {
-            record.status = false;
-          }
-        }
-      })
-    })
   }
 }

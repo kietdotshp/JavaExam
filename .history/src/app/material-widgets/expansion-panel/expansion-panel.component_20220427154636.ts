@@ -25,13 +25,8 @@ export class ExpansionPanelComponent implements OnInit {
   ngOnInit() {
     this.questionService.getQuestion().subscribe((data) => {
       this.questions = data;
-      data.forEach(item => {
-        item.answerDTOS.forEach((element)=>{
-          element["status"] = false;
-        });
-      });
+      console.log(this.questions);
     });
-    this.startCouter();
   }
 
   openQuestion(index: number) {
@@ -58,7 +53,7 @@ export class ExpansionPanelComponent implements OnInit {
     this.interval$ = interval(1000).subscribe((value) => {
       this.couter--;
       if (this.couter === 0) {
-        // this.questionNo++;
+        this.questionNo++;
         this.couter = 60;
       }
     });
@@ -82,22 +77,5 @@ export class ExpansionPanelComponent implements OnInit {
       console.log(this.questions);
       this.couter=60
     });
-  }
-
-  onClickChecBox(item){
-    this.questions.forEach((element) => {
-      element.answerDTOS.forEach((record)=>{
-        if(record.status == false){
-          if(record.id == item.id) {
-            record.status = true;
-          }
-        }
-        else {
-          if(record.id == item.id) {
-            record.status = false;
-          }
-        }
-      })
-    })
   }
 }

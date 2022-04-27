@@ -253,7 +253,7 @@
           <div class="card-body">
             <div class="form-group" *ngFor="let item of questions[questionNo].answerDTOS">
               <label class="custom-control custom-checkbox mb-0">
-                <input type="checkbox" class="custom-control-input" [checked]="item.status" (click)="onClickChecBox(item)">
+                <input type="checkbox" class="custom-control-input" [checked]="item.status">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">{{item.answer}}</span>
               </label>
