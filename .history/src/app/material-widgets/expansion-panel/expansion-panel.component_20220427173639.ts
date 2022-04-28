@@ -84,20 +84,11 @@ export class ExpansionPanelComponent implements OnInit {
     });
   }
 
-  onClickChecBox(item){
-    this.questions.forEach((element) => {
-      element.answerDTOS.forEach((record)=>{
-        if(record.status == false){
-          if(record.id == item.id) {
-            record.status = true;
-          }
-        }
-        else {
-          if(record.id == item.id) {
-            record.status = false;
-          }
-        }
-      })
-    })
+  onClickChecBox(event,item){
+    console.log(item);
+    // this.questions.forEach((item) => {
+
+    // })
   }
+
 }

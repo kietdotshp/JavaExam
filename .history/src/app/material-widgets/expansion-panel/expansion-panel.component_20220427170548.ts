@@ -26,9 +26,7 @@ export class ExpansionPanelComponent implements OnInit {
     this.questionService.getQuestion().subscribe((data) => {
       this.questions = data;
       data.forEach(item => {
-        item.answerDTOS.forEach((element)=>{
-          element["status"] = false;
-        });
+        console.log(item.answerDTOS);
       });
     });
     this.startCouter();
@@ -84,20 +82,4 @@ export class ExpansionPanelComponent implements OnInit {
     });
   }
 
-  onClickChecBox(item){
-    this.questions.forEach((element) => {
-      element.answerDTOS.forEach((record)=>{
-        if(record.status == false){
-          if(record.id == item.id) {
-            record.status = true;
-          }
-        }
-        else {
-          if(record.id == item.id) {
-            record.status = false;
-          }
-        }
-      })
-    })
-  }
 }

@@ -6,7 +6,6 @@ export interface IQuestion{
     id: string,
     answer: string,
     corectAnswer: boolean,
-    status: boolean,
   }]
 }
 
@@ -18,6 +17,5 @@ export class Question implements IQuestion{
     id: string,
     answer: string,
     corectAnswer: boolean,
-    status: boolean,
   }]
 }
