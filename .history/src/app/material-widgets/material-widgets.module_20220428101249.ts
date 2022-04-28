@@ -137,8 +137,7 @@ export const highlightJsValue = {
       //     typescript: () => import('highlight.js/lib/languages/typescript')}
       // }
     },
-    QuestionService,
-    HighlightService
+    QuestionService
   ],
   exports: [
     ]

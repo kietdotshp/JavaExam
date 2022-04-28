@@ -199,7 +199,6 @@
 	</div>
 
 </div> -->
-
 <div class="d-flex flex-column h-100">
   <div
     class="mdk-drawer-layout js-mdk-drawer-layout flex"
@@ -260,8 +259,6 @@
             </div>
           </div>
           <div class="card-body">
-             <!-- show code  -->
-            <div [innerHTML]="questions[questionNo].description"></div>
             <div
               class="form-group"
               *ngFor="let item of questions[questionNo].answerDTOS"
@@ -338,8 +335,8 @@
             <ul class="list-group list-group-fit">
               <li>
                 <div>
-                  <a class="btn btn-success btn-block">
-                    Submit<i class="material-icons btn__icon--right" (click)="processScoreExam()"> send</i></a>
+                  <a href="#" class="btn btn-success btn-block">
+                    Submit<i class="material-icons btn__icon--right"> send</i></a>
                 </div>
               </li>
             </ul>
@@ -353,4 +350,5 @@
   <div class="mdk-drawer js-mdk-drawer" id="default-drawer"></div>
 </div>
 
-
+ <!-- show code  -->
+ <div [innerHTML]="htmlContent"></div>

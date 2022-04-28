@@ -21,7 +21,7 @@ import { HighlightService } from '../service/highlight.service';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [ HttpClientModule],
+  providers: [ HttpClientModule, HighlightService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
