@@ -3,7 +3,6 @@ import { EXPANSION_HELPERS } from './helpers.data';
 import { IQuestion, Question } from './question';
 import { QuestionService } from './expansion-panel.service';
 import { interval } from 'rxjs';
-import { HighlightService } from '../../../service/highlight.service';
 
 @Component({
   selector: 'cdk-expansion-panel',
@@ -11,8 +10,6 @@ import { HighlightService } from '../../../service/highlight.service';
   styleUrls: ['./expansion-panel.component.scss']
 })
 export class ExpansionPanelComponent implements OnInit {
-  private highlighted: boolean = false;
-
   step = 0;
   public basicPanelOpenState: any;
   expansionHelpers = EXPANSION_HELPERS;
@@ -23,25 +20,14 @@ export class ExpansionPanelComponent implements OnInit {
   couter = 60;
   currentAnswers: any;
   interval$: any;
-  constructor(
-    private questionService: QuestionService,
-    private highlightService: HighlightService
-  ) {}
-
-  // show đoạn code ví dụ lên html
-  ngAfterViewChecked() {
-    if (!this.highlighted) {
-      this.highlightService.highlightAll();
-      this.highlighted = true;
-    }
-  }
+  constructor(private questionService: QuestionService) {}
 
   ngOnInit() {
     this.questionService.getQuestion().subscribe((data) => {
       this.questions = data;
-      data.forEach((item) => {
-        item.answerDTOS.forEach((element) => {
-          element['status'] = false;
+      data.forEach(item => {
+        item.answerDTOS.forEach((element)=>{
+          element["status"] = false;
         });
       });
     });
@@ -94,26 +80,25 @@ export class ExpansionPanelComponent implements OnInit {
     this.questionService.getQuestion().subscribe((data) => {
       this.questions = data;
       console.log(this.questions);
-      this.couter = 60;
+      this.couter=60
     });
   }
 
-  onClickChecBox(item) {
+  onClickChecBox(item){
     this.questions.forEach((element) => {
-      element.answerDTOS.forEach((record) => {
-        if (record.status == false) {
-          if (record.id == item.id) {
+      element.answerDTOS.forEach((record)=>{
+        if(record.status == false){
+          if(record.id == item.id) {
             record.status = true;
           }
-        } else {
-          if (record.id == item.id) {
+        }
+        else {
+          if(record.id == item.id) {
             record.status = false;
           }
         }
-      });
-    });
-  }
-  processScoreExam() {
+      })
+    })
     console.log(this.questions);
   }
 }

@@ -51,7 +51,6 @@ import { RadioComponent } from './radio/radio.component';
 import { SelectComponent } from './select/select.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { QuestionService } from './expansion-panel/expansion-panel.service';
-import { HighlightService } from '../../service/highlight.service';
 
 
 
@@ -137,8 +136,7 @@ export const highlightJsValue = {
       //     typescript: () => import('highlight.js/lib/languages/typescript')}
       // }
     },
-    QuestionService,
-    HighlightService
+    QuestionService
   ],
   exports: [
     ]
