@@ -5,6 +5,7 @@ import { QuestionService } from './expansion-panel.service';
 import { interval } from 'rxjs';
 import { HighlightService } from '../../../service/highlight.service';
 import { LocalStorageService } from '../../../service/local-storage.service';
+import * as console from 'console';
 
 @Component({
   selector: 'cdk-expansion-panel',

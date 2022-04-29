@@ -5,6 +5,7 @@ import { QuestionService } from './expansion-panel.service';
 import { interval } from 'rxjs';
 import { HighlightService } from '../../../service/highlight.service';
 import { LocalStorageService } from '../../../service/local-storage.service';
+import * as console from 'console';
 
 @Component({
   selector: 'cdk-expansion-panel',
@@ -116,16 +117,16 @@ export class ExpansionPanelComponent implements OnInit {
     });
   }
 
-  onClickMark(){
-    this.questions.forEach((item) =>{
-      item.answerDTOS.forEach((element)=>{
-        if(element.corectAnswer === true && element.status === true){
-          this.point++
-        }
-      })
-    });
-    console.log(this.point);
-  }
+  // onClickMark(){
+  //   this.questions.forEach((item) =>{
+  //     item.answerDTOS.forEach((element)=>{
+  //       if(element.corectAnswer === true && element.status === true){
+  //         this.point++
+  //       }
+  //     })
+  //   });
+  //   console.log(this.point);
+  // }
 
   processScoreExam() {
     console.log(this.questions);

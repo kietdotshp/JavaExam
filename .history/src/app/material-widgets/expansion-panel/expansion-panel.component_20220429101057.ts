@@ -5,6 +5,7 @@ import { QuestionService } from './expansion-panel.service';
 import { interval } from 'rxjs';
 import { HighlightService } from '../../../service/highlight.service';
 import { LocalStorageService } from '../../../service/local-storage.service';
+import * as console from 'console';
 
 @Component({
   selector: 'cdk-expansion-panel',
@@ -124,11 +125,11 @@ export class ExpansionPanelComponent implements OnInit {
         }
       })
     });
-    console.log(this.point);
+    // console.log(this.point);
   }
 
-  processScoreExam() {
-    console.log(this.questions);
-    this.localStorageService.setQuestions(this.questions);
-  }
+  // processScoreExam() {
+  //   console.log(this.questions);
+  //   this.localStorageService.setQuestions(this.questions);
+  // }
 }

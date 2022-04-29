@@ -116,16 +116,16 @@ export class ExpansionPanelComponent implements OnInit {
     });
   }
 
-  onClickMark(){
-    this.questions.forEach((item) =>{
-      item.answerDTOS.forEach((element)=>{
-        if(element.corectAnswer === true && element.status === true){
-          this.point++
-        }
-      })
-    });
-    console.log(this.point);
-  }
+  // onClickMark(){
+  //   this.questions.forEach((item) =>{
+  //     item.answerDTOS.forEach((element)=>{
+  //       if(element.corectAnswer === true && element.status === true){
+  //         this.point++
+  //       }
+  //     })
+  //   });
+  //   console.log(this.point);
+  // }
 
   processScoreExam() {
     console.log(this.questions);

@@ -124,6 +124,7 @@ export class ExpansionPanelComponent implements OnInit {
         }
       })
     });
+    console.log("nguyen");
     console.log(this.point);
   }
 

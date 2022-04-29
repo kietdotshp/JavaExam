@@ -13,7 +13,7 @@ import { LocalStorageService } from '../../../service/local-storage.service';
 })
 export class ExpansionPanelComponent implements OnInit {
   private highlighted: boolean = false;
-  point = 0 ;
+
   step = 0;
   public basicPanelOpenState: any;
   expansionHelpers = EXPANSION_HELPERS;
@@ -115,18 +115,6 @@ export class ExpansionPanelComponent implements OnInit {
       });
     });
   }
-
-  onClickMark(){
-    this.questions.forEach((item) =>{
-      item.answerDTOS.forEach((element)=>{
-        if(element.corectAnswer === true && element.status === true){
-          this.point++
-        }
-      })
-    });
-    console.log(this.point);
-  }
-
   processScoreExam() {
     console.log(this.questions);
     this.localStorageService.setQuestions(this.questions);
