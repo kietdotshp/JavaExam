@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../../../service/local-storage.service';
 import { IQuestion } from '../expansion-panel/question';
-import { AnswerDTO, IAnswerDTO } from './answer';
+import { IAnswerDTO } from './answer';
 import { SPINNER_HELPERS } from './helpers.data';
 
 @Component({
@@ -10,6 +10,8 @@ import { SPINNER_HELPERS } from './helpers.data';
   styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent implements OnInit {
+  answerDTOs : IAnswerDTO[];
+
   public showSource;
   public colors = 'primary';
   public modes = 'determinate';
@@ -22,8 +24,7 @@ export class SpinnerComponent implements OnInit {
   public spinnerHelpers: any = SPINNER_HELPERS;
 
   // my custom component
-  questions : IQuestion[];
-  answerDTOs = [] ;
+  questions : any;
   constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
@@ -36,35 +37,21 @@ export class SpinnerComponent implements OnInit {
   showAnswersChoice(){
     this.questions = this.localStorageService.getQuestions();
     console.log(this.questions);
-    for( var i = 0 ;i < this.questions.length ;i++ ){
-
-        var question_id = this.questions[i].id;
-        var title = this.questions[i].title;
-        var description = this.questions[i].description;
-        var answer_id1: any;
-        var answer: any;
-        var corect: any;
-        for( let j = 0 ; j < this.questions[i].answerDTOS.length ;j++ ){
-          answer_id1 = this.questions[i].answerDTOS[j].id
-           answer =  this.questions[i].answerDTOS[j].answer
-            if(this.questions[i].answerDTOS[j].status == true && this.questions[i].answerDTOS[j].corectAnswer == true ){
-              corect = true;
+    for( let i =0 ;i < this.questions.length ;i++ ){
+        var answerDTO : IAnswerDTO;
+        answerDTO.question_id = this.questions[i].question_id;
+        answerDTO.title = this.questions[i].title;
+        answerDTO.description = this.questions[i].description;
+        for( let j = 0 ; j < this.questions[i].answer.length ;j++ ){
+          answerDTO.answer_id = this.questions[i].answer[j].id
+          answerDTO.answer =  this.questions[i].answer[j].answer
+            if(this.questions[i].answer[j].status == true && this.questions[i].answer[j].corectAnswer == true ){
+              answerDTO.corect = true;
             }
             else{
-              corect = false;
+              answerDTO.corect = false;
             }
         }
-
-        var answerDTO =  {
-          question_id: question_id,
-          title: title,
-          description: description,
-          answer_id: answer_id1,
-          answer: answer,
-          corectAnswer: false,
-          corect: corect
-        } ;
-        console.log(answerDTO);
         this.answerDTOs.push(answerDTO);
     }
     console.log(this.answerDTOs);

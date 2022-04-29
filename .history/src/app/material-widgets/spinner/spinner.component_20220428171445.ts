@@ -23,7 +23,7 @@ export class SpinnerComponent implements OnInit {
 
   // my custom component
   questions : IQuestion[];
-  answerDTOs = [] ;
+  answerDTOs : any [] ;
   constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit() {

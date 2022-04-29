@@ -10,6 +10,8 @@ import { SPINNER_HELPERS } from './helpers.data';
   styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent implements OnInit {
+  answerDTOs : IAnswerDTO[] ;
+
   public showSource;
   public colors = 'primary';
   public modes = 'determinate';
@@ -23,7 +25,6 @@ export class SpinnerComponent implements OnInit {
 
   // my custom component
   questions : IQuestion[];
-  answerDTOs = [] ;
   constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
@@ -36,7 +37,7 @@ export class SpinnerComponent implements OnInit {
   showAnswersChoice(){
     this.questions = this.localStorageService.getQuestions();
     console.log(this.questions);
-    for( var i = 0 ;i < this.questions.length ;i++ ){
+    for( let i = 0 ;i < this.questions.length ;i++ ){
 
         var question_id = this.questions[i].id;
         var title = this.questions[i].title;
@@ -54,18 +55,18 @@ export class SpinnerComponent implements OnInit {
               corect = false;
             }
         }
+        console.log(question_id);
 
-        var answerDTO =  {
-          question_id: question_id,
-          title: title,
-          description: description,
-          answer_id: answer_id1,
-          answer: answer,
-          corectAnswer: false,
-          corect: corect
-        } ;
-        console.log(answerDTO);
-        this.answerDTOs.push(answerDTO);
+        // this.answerDTOs[i].question_id = question_id;
+        // this.answerDTOs.push({
+        //   question_id: question_id,
+        //   title: title,
+        //   description: description,
+        //   answer_id: answer_id1,
+        //   answer: answer,
+        //   corectAnswer: false,
+        //   corect: corect
+        // } );
     }
     console.log(this.answerDTOs);
   }

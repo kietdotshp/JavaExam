@@ -189,14 +189,14 @@
       <h4 class="card-title">Questions</h4>
     </div>
     <ul class="list-group list-group-fit mb-0" >
-      <li class="list-group-item" *ngFor="let answerDTO of answerDTOs" >
+      <li class="list-group-item" *ngFor="let question of questions" >
         <div class="media">
           <div class="media-left">
             <div class="text-muted-light">1.</div>
           </div>
-          <div class="media-body">{{answerDTO.title}}</div>
+          <div class="media-body">{{question.title}}</div>
           <div class="media-right">
-            <span class="badge badge-success">{{answerDTO.corect}}</span>
+            <span class="badge badge-success">{{question.answer}}</span>
           </div>
         </div>
       </li>

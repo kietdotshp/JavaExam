@@ -4,7 +4,6 @@ import { IQuestion, Question } from './question';
 import { QuestionService } from './expansion-panel.service';
 import { interval } from 'rxjs';
 import { HighlightService } from '../../../service/highlight.service';
-import { LocalStorageService } from '../../../service/local-storage.service';
 
 @Component({
   selector: 'cdk-expansion-panel',
@@ -26,8 +25,7 @@ export class ExpansionPanelComponent implements OnInit {
   interval$: any;
   constructor(
     private questionService: QuestionService,
-    private highlightService: HighlightService,
-    private localStorageService : LocalStorageService
+    private highlightService: HighlightService
   ) {}
 
   // show đoạn code ví dụ lên html
@@ -117,6 +115,6 @@ export class ExpansionPanelComponent implements OnInit {
   }
   processScoreExam() {
     console.log(this.questions);
-    this.localStorageService.setQuestions(this.questions);
+    localStorage.setItem('questions',JSON.stringify(this.questions));
   }
 }

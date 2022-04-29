@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../../../service/local-storage.service';
 import { IQuestion } from '../expansion-panel/question';
-import { AnswerDTO, IAnswerDTO } from './answer';
+import { AnswerDTO } from './answer';
 import { SPINNER_HELPERS } from './helpers.data';
 
 @Component({
@@ -10,6 +10,8 @@ import { SPINNER_HELPERS } from './helpers.data';
   styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent implements OnInit {
+  answerDTOs : AnswerDTO[];
+
   public showSource;
   public colors = 'primary';
   public modes = 'determinate';
@@ -23,7 +25,6 @@ export class SpinnerComponent implements OnInit {
 
   // my custom component
   questions : IQuestion[];
-  answerDTOs = [] ;
   constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
@@ -36,7 +37,7 @@ export class SpinnerComponent implements OnInit {
   showAnswersChoice(){
     this.questions = this.localStorageService.getQuestions();
     console.log(this.questions);
-    for( var i = 0 ;i < this.questions.length ;i++ ){
+    for( let i = 0 ;i < this.questions.length ;i++ ){
 
         var question_id = this.questions[i].id;
         var title = this.questions[i].title;
@@ -54,8 +55,7 @@ export class SpinnerComponent implements OnInit {
               corect = false;
             }
         }
-
-        var answerDTO =  {
+        this.answerDTOs.push({
           question_id: question_id,
           title: title,
           description: description,
@@ -63,9 +63,7 @@ export class SpinnerComponent implements OnInit {
           answer: answer,
           corectAnswer: false,
           corect: corect
-        } ;
-        console.log(answerDTO);
-        this.answerDTOs.push(answerDTO);
+        } );
     }
     console.log(this.answerDTOs);
   }
