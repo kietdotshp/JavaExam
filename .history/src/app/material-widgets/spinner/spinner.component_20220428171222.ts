@@ -23,7 +23,7 @@ export class SpinnerComponent implements OnInit {
 
   // my custom component
   questions : IQuestion[];
-  answerDTOs = [] ;
+  answerDTOs : AnswerDTO[] ;
   constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
@@ -65,7 +65,7 @@ export class SpinnerComponent implements OnInit {
           corect: corect
         } ;
         console.log(answerDTO);
-        this.answerDTOs.push(answerDTO);
+        // this.answerDTOs.push(answerDTO);
     }
     console.log(this.answerDTOs);
   }

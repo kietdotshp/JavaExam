@@ -23,7 +23,7 @@ export class SpinnerComponent implements OnInit {
 
   // my custom component
   questions : IQuestion[];
-  answerDTOs = [] ;
+  answerDTOs : AnswerDTO[] ;
   constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
@@ -54,18 +54,16 @@ export class SpinnerComponent implements OnInit {
               corect = false;
             }
         }
-
-        var answerDTO =  {
-          question_id: question_id,
-          title: title,
-          description: description,
-          answer_id: answer_id1,
-          answer: answer,
-          corectAnswer: false,
-          corect: corect
-        } ;
-        console.log(answerDTO);
-        this.answerDTOs.push(answerDTO);
+        this.answerDTOs[i].question_id = question_id;
+        // this.answerDTOs.push({
+        //   question_id: question_id,
+        //   title: title,
+        //   description: description,
+        //   answer_id: answer_id1,
+        //   answer: answer,
+        //   corectAnswer: false,
+        //   corect: corect
+        // } );
     }
     console.log(this.answerDTOs);
   }
