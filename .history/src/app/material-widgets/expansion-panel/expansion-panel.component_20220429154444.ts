@@ -13,6 +13,7 @@ import { LocalStorageService } from '../../../service/local-storage.service';
 })
 export class ExpansionPanelComponent implements OnInit {
   private highlighted: boolean = false;
+  point = 0;
   step = 0;
   public basicPanelOpenState: any;
   expansionHelpers = EXPANSION_HELPERS;
@@ -116,7 +117,7 @@ export class ExpansionPanelComponent implements OnInit {
   }
 
   onClickMark() {
-    let  point = 0;
+    console.log(this.questions);
     this.questions.forEach((item) => {
       let Tongsocaudung = 0;
       let socaudung = 0;
@@ -137,10 +138,11 @@ export class ExpansionPanelComponent implements OnInit {
         }
       });
       if (Tongsocaudung === socaudung && Tongsocausai === socausai) {
-        point++;
+        this.point++;
       }
     });
-    console.log(point);
+    console.log(this.questions);
+    console.log(this.point);
   }
 
   processScoreExam() {
