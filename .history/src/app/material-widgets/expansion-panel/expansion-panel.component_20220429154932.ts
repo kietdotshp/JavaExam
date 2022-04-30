@@ -117,11 +117,11 @@ export class ExpansionPanelComponent implements OnInit {
 
   onClickMark() {
     let  point = 0;
+    let Tongsocaudung = 0;
+    let socaudung = 0;
+    let Tongsocausai = 0;
+    let socausai = 0;
     this.questions.forEach((item) => {
-      let Tongsocaudung = 0;
-      let socaudung = 0;
-      let Tongsocausai = 0;
-      let socausai = 0;
       item.answerDTOS.forEach((element) => {
         if (element.corectAnswer === true) {
           Tongsocaudung++;
