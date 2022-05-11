@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HighlightService } from '../service/highlight.service';
 import { HomeComponent } from './home/home.component';
+import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     LazyLoadModule,
     CoreModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    HighlightModule
   ],
   providers: [ HttpClientModule],
   bootstrap: [AppComponent]

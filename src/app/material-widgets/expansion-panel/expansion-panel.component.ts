@@ -18,6 +18,16 @@ export enum KEY_CODE {
   styleUrls: ['./expansion-panel.component.scss']
 })
 export class ExpansionPanelComponent implements OnInit {
+  code = ` <!DOCTYPE html>
+  <html>
+  <title>HTML Tutorial</title>
+  <body>
+
+  <h1>This is a heading</h1>
+  <p>This is a paragraph.</p>
+
+  </body>
+  </html>`;
   private highlighted: boolean = false;
   step = 0;
   public basicPanelOpenState: any;

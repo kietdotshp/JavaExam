@@ -28,7 +28,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MaterialWidgetsRouterModule } from './material-widgets.router';
 
 // import * as hljs from 'highlight.js';
-import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 // import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
 import { ListComponent } from './list/list.component';
 import { ButtonsComponent } from './buttons/buttons.component';
@@ -55,19 +55,19 @@ import { HighlightService } from '../../service/highlight.service';
 
 
 
-export const highlightJsFactory = () => {
-  return {
-    coreLibraryLoader: () => import('highlight.js/lib/core'),
-    languages: {
-      typescript: () => import('highlight.js/lib/languages/typescript')}
-  }
-}
+// export const highlightJsFactory = () => {
+//   return {
+//     coreLibraryLoader: () => import('highlight.js/lib/core'),
+//     languages: {
+//       typescript: () => import('highlight.js/lib/languages/typescript')}
+//   }
+// }
 
-export const highlightJsValue = {
-  coreLibraryLoader: () => import('highlight.js/lib/core'),
-  languages: {
-    typescript: () => import('highlight.js/lib/languages/typescript')}
-};
+// export const highlightJsValue = {
+//   coreLibraryLoader: () => import('highlight.js/lib/core'),
+//   languages: {
+//     typescript: () => import('highlight.js/lib/languages/typescript')}
+// };
 
 @NgModule({
   imports: [
@@ -122,21 +122,19 @@ export const highlightJsValue = {
     RadioComponent,
     SelectComponent,
 
-
-
     ],
-  providers: [
-    {
-      provide: HIGHLIGHT_OPTIONS,
-      // useValue: highlightJsValue
-      useFactory: highlightJsFactory,
-      deps: []
-      // useValue: {
-      //   coreLibraryLoader: () => import('highlight.js/lib/core'),
-      //   languages: {
-      //     typescript: () => import('highlight.js/lib/languages/typescript')}
-      // }
-    },
+    providers: [
+      {
+        provide: HIGHLIGHT_OPTIONS,
+        useValue: {
+          coreLibraryLoader: () => import('highlight.js/lib/core'),
+          languages: {
+            typescript: () => import('highlight.js/lib/languages/typescript'),
+            css: () => import('highlight.js/lib/languages/css'),
+            xml: () => import('highlight.js/lib/languages/xml')
+          }
+        }
+      },
     QuestionService,
     HighlightService
   ],
