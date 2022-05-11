@@ -10,7 +10,7 @@ export enum KEY_CODE {
   LEFT_ARROW = 37,
   UP_ARROW = 38,
   DOWN_ARROW = 40,
-  SPACE_ARROW = 32
+  SPACE_ARROW = 32,
 }
 @Component({
   selector: 'cdk-expansion-panel',
@@ -29,7 +29,7 @@ export class ExpansionPanelComponent implements OnInit {
   couter = 0;
   currentAnswers: any;
   interval$: any;
-  isDisabled = false;
+  isDisabled = true;
   constructor(
     private questionService: QuestionService,
     private highlightService: HighlightService,
@@ -90,6 +90,7 @@ export class ExpansionPanelComponent implements OnInit {
     setTimeout(() => {
       this.interval$.unsubscribe();
     }, 6000000);
+
   }
   stopCouter() {
     this.interval$.unsubscribe();
@@ -126,7 +127,7 @@ export class ExpansionPanelComponent implements OnInit {
   }
 
   onClickMark() {
-    let point = 0;
+    let  point = 0;
     this.questions.forEach((item) => {
       let Tongsocaudung = 0;
       let socaudung = 0;
@@ -138,8 +139,9 @@ export class ExpansionPanelComponent implements OnInit {
           if (element.status === true) {
             socaudung++;
           }
-        } else {
-          Tongsocausai++;
+        }
+        else{
+          Tongsocausai++
           if (element.status === false) {
             socausai++;
           }
@@ -167,15 +169,15 @@ export class ExpansionPanelComponent implements OnInit {
     if (event.keyCode === KEY_CODE.LEFT_ARROW) {
       this.previousQuestion();
     }
-    if (event.keyCode === KEY_CODE.UP_ARROW) {
+    if(event.keyCode === KEY_CODE.UP_ARROW) {
+
     }
-    if (event.keyCode === KEY_CODE.DOWN_ARROW) {
+    if(event.keyCode === KEY_CODE.DOWN_ARROW) {
     }
   }
 
-  closeExamp() {
-    console.log('is close quiz, canot click option');
-    this.isDisabled = true;
-    alert('Hết thời gian làm bài');
+  closeExamp(){
+     console.log("is close quiz, canot click option");
+
   }
 }

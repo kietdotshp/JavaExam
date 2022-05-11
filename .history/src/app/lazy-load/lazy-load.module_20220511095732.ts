@@ -12,7 +12,7 @@ const routes: Routes = [
     {path:'home',component: HomeComponent},
     // {path: 'editor', loadChildren: () => import('../editor/editor.module').then(m => m.EditorModule)},
 
-    {path: '**', redirectTo: '/home'},
+    {path: '**', redirectTo: '../home'},
 ]
 
 @NgModule({

@@ -7,10 +7,7 @@ import { HighlightService } from '../../../service/highlight.service';
 import { LocalStorageService } from '../../../service/local-storage.service';
 export enum KEY_CODE {
   RIGHT_ARROW = 39,
-  LEFT_ARROW = 37,
-  UP_ARROW = 38,
-  DOWN_ARROW = 40,
-  SPACE_ARROW = 32
+  LEFT_ARROW = 37
 }
 @Component({
   selector: 'cdk-expansion-panel',
@@ -26,10 +23,9 @@ export class ExpansionPanelComponent implements OnInit {
   questionPrivew: Question;
   // currentQuestion : number =1;
   questionNo: number = 0;
-  couter = 0;
+  couter = 300;
   currentAnswers: any;
   interval$: any;
-  isDisabled = false;
   constructor(
     private questionService: QuestionService,
     private highlightService: HighlightService,
@@ -77,14 +73,11 @@ export class ExpansionPanelComponent implements OnInit {
     }
   }
   startCouter() {
-    this.couter = 10;
     this.interval$ = interval(1000).subscribe((value) => {
       this.couter--;
       if (this.couter === 0) {
         // this.questionNo++;
-        // this.couter = 300;
-        this.closeExamp();
-        this.stopCouter();
+        this.couter = 300;
       }
     });
     setTimeout(() => {
@@ -126,7 +119,7 @@ export class ExpansionPanelComponent implements OnInit {
   }
 
   onClickMark() {
-    let point = 0;
+    let  point = 0;
     this.questions.forEach((item) => {
       let Tongsocaudung = 0;
       let socaudung = 0;
@@ -138,8 +131,9 @@ export class ExpansionPanelComponent implements OnInit {
           if (element.status === true) {
             socaudung++;
           }
-        } else {
-          Tongsocausai++;
+        }
+        else{
+          Tongsocausai++
           if (element.status === false) {
             socausai++;
           }
@@ -167,15 +161,5 @@ export class ExpansionPanelComponent implements OnInit {
     if (event.keyCode === KEY_CODE.LEFT_ARROW) {
       this.previousQuestion();
     }
-    if (event.keyCode === KEY_CODE.UP_ARROW) {
-    }
-    if (event.keyCode === KEY_CODE.DOWN_ARROW) {
-    }
-  }
-
-  closeExamp() {
-    console.log('is close quiz, canot click option');
-    this.isDisabled = true;
-    alert('Hết thời gian làm bài');
   }
 }
