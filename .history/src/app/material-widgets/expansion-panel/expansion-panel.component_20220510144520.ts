@@ -93,7 +93,7 @@ export class ExpansionPanelComponent implements OnInit {
   }
   stopCouter() {
     this.interval$.unsubscribe();
-    this.couter = 0;
+    this.couter = -1;
   }
   resetCouter() {
     this.stopCouter();

@@ -24,13 +24,13 @@ const materialWidgetRoutes: Routes = [
   	{ path: 'buttons', component:  ButtonsComponent , data: { animation: 'buttons' }},
     { path: 'list', component:  ListComponent , data: { animation: 'list' }},
     { path: 'stepper', component: StepperComponent ,data: { animation: 'stepper' } },
-    { path: 'quiz', component: ExpansionPanelComponent},
+    { path: 'expansion', component: ExpansionPanelComponent},
     { path: 'spinner', component: SpinnerComponent ,data: { animation: 'spinner' } },
     { path: 'cards', component: CardsComponent ,data: { animation: 'cards' } },
     { path: 'icons', component: IconsComponent , data: { animation: 'icons' }},
     { path: 'autocomplete', component: AutocompleteComponent , data: { animation: 'autocomplete' }},
     { path: 'checkbox', component:  CheckboxComponent , data: { animation: 'checkbox' }},
-
+    
     { path: 'select', component:  SelectComponent ,data: { animation: 'select' } },
     { path: 'input', component:  InputComponent , data: { animation: 'input' }},
     { path: 'radio', component:  RadioComponent , data: { animation: 'radio' }},

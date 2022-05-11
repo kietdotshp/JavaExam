@@ -77,7 +77,7 @@ export class ExpansionPanelComponent implements OnInit {
     }
   }
   startCouter() {
-    this.couter = 10;
+    this.couter = 300;
     this.interval$ = interval(1000).subscribe((value) => {
       this.couter--;
       if (this.couter === 0) {
