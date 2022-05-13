@@ -9,6 +9,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HighlightService } from '../service/highlight.service';
 import { HomeComponent } from './home/home.component';
 import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,9 +24,10 @@ import { HighlightModule, HighlightOptions, HIGHLIGHT_OPTIONS } from 'ngx-highli
     CoreModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    HighlightModule
+    HighlightModule,
+    ReactiveFormsModule
   ],
-  providers: [ HttpClientModule],
+  providers: [ HttpClientModule, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

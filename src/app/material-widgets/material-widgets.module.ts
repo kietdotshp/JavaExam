@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, FormBuilder } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -124,17 +124,17 @@ import { HighlightService } from '../../service/highlight.service';
 
     ],
     providers: [
-      {
-        provide: HIGHLIGHT_OPTIONS,
-        useValue: {
-          coreLibraryLoader: () => import('highlight.js/lib/core'),
-          languages: {
-            typescript: () => import('highlight.js/lib/languages/typescript'),
-            css: () => import('highlight.js/lib/languages/css'),
-            xml: () => import('highlight.js/lib/languages/xml')
-          }
-        }
-      },
+      // {
+      //   provide: HIGHLIGHT_OPTIONS, 
+      //   useValue: {
+      //     coreLibraryLoader: () => import('highlight.js/lib/core'),
+      //     languages: {
+      //       typescript: () => import('highlight.js/lib/languages/typescript'),
+      //       css: () => import('highlight.js/lib/languages/css'),
+      //       xml: () => import('highlight.js/lib/languages/xml')
+      //     }
+      //   }
+      // },
     QuestionService,
     HighlightService
   ],
